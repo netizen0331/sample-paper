@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Set 2 - Odd Questions</title>
+
+  <style>
+    /* Q1: body background settings [1] */
+    body{
+      background-image: url("https://picsum.photos/300.jpg");
+      background-repeat: repeat-y;
+      background-color: #a9a9ea;
+      background-position-x: 50%;
+      background-attachment: fixed;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Q7(a): h2 styling [1] */
+    h2{
+      font-size: 28px;
+      color: white;
+      background-color: teal;
+      font-weight: bold;
+      padding: 6px 10px;
+      display: inline-block;
+    }
+
+    /* Q9: horizontal nav [1] */
+    .nav{
+      padding: 0;
+      margin: 16px 0;
+      list-style: none;
+      background-color: darkgreen;
+      overflow: hidden;
+    }
+    .nav li{
+      float: left;
+    }
+    .nav li a{
+      display: block;
+      color: #ffffff;
+      text-align: left;
+      padding: 12px 14px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Set 2 (Odd Questions)</h1>
+
+  <!-- Q3: show result with document.write (for + do...while) [1] -->
+  <h2>Q3 Output (for loop)</h2>
+  <script>
+    let result = "";
+    for (let i = 5; i <= 25; i += 5) {
+      result += i + "<br>";
+    }
+    document.write(result);
+  </script>
+
+  <hr>
+
+  <h2>Q3 Output (do...while loop)</h2>
+  <script>
+    result = "";
+    let j = 5;
+    do{
+      result += j + "<br>";
+      j += 5;
+    }while(j <= 25);
+
+    document.write(result);
+  </script>
+
+  <hr>
+
+  <!-- Q5: array tasks [1] -->
+  <h2>Q5 (Check Console)</h2>
+  <script>
+    let movieList = ["Inception", "Interstellar", "Dune", "Arrival", "Oppenheimer"];
+
+    // (a) [1]
+    console.log("Q5(a) movieList[1] =", movieList[1]);
+
+    // (b) [1]
+    movieList.push("Tenet");
+    console.log("Q5(b) after push =", movieList);
+
+    // (c) [1]
+    console.log("Q5(c) iterate:");
+    for (let i = 0; i < movieList.length; i++){
+      console.log(movieList[i]);
+    }
+  </script>
+
+  <hr>
+
+  <!-- Q7(b): two selectors that select all li.programme [1]
+       Selector examples:
+       1) .programme
+       2) ul li.programme
+  -->
+  <h2>WELLNESS HUB</h2>
+  <p>Choose your programme!</p>
+  <ul>
+    <li class="programme">Yoga</li>
+    <li class="programme">Pilates</li>
+    <li class="programme">Meditation</li>
+    <li class="programme">Cycling</li>
+    <li class="programme">Swimming</li>
+  </ul>
+
+  <hr>
+
+  <!-- Q9: corrected horizontal nav [1] -->
+  <h2>Q9 Navigation</h2>
+  <ul class="nav">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <hr>
+
+  <!-- Q11: getElementById + showAlert [1]
+       Source paragraph didn't include id, so we add one to use getElementById.
+  -->
+  <h2>Q11</h2>
+  <p id="notice">Notification: Your session will expire soon.</p>
+  <button onclick="showAlert()">Show Alert</button>
+
+  <hr>
+
+  <!-- Q13: getElementsByTagName + dimAll [1] -->
+  <h2>Q13</h2>
+  <p>Morning Session</p>
+  <p>Afternoon Session</p>
+  <p>Evening Session</p>
+  <button onclick="dimAll()">Dim All</button>
+
+  <hr>
+
+  <!-- Q15: createElement + appendNotice [1] -->
+  <h2>Q15</h2>
+  <button onclick="appendNotice()">Append Notice</button>
+
+  <script>
+    // Q11 [1]
+    function showAlert(){
+      const p = document.getElementById("notice");
+      p.style.color = "crimson";
+      p.style.backgroundColor = "lightyellow";
+    }
+
+    // Q13 [1]
+    function dimAll(){
+      const ps = document.getElementsByTagName("p");
+      for (let i = 0; i < ps.length; i++){
+        ps[i].style.color = "dimgray";
+      }
+    }
+
+    // Q15 [1]
+    function appendNotice(){
+      const p = document.createElement("p");
+      p.textContent = "Registration is now open!";
+      document.body.appendChild(p);
+    }
+  </script>
+
+</body>
+</html>

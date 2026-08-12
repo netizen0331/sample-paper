@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <title>Set 3 - Odd Questions</title>
+
+  <style>
+    /* Q3(1): h2 style [2] */
+    h2{
+      font-size: 26px;
+      color: #264653;
+      background-color: #e9f5f2;
+      font-weight: 700;
+      padding: 6px 10px;
+      display: inline-block;
+    }
+
+    /* Q9: body background [2] */
+    body{
+      background-image: url("room-pattern.svg");
+      background-repeat: repeat-y;
+      background-position-x: 80%;
+      background-color: #f5f1e8;
+      background-attachment: fixed;
+      font-family: Arial, sans-serif;
+      padding: 16px;
+    }
+
+    /* Q13: update service links to meet requirements [2] */
+    .service-links ul{
+      list-style: none;      /* remove bullets [2] */
+      display: flex;         /* flex row [2] */
+      margin: 0;
+      padding: 0;
+      background-color: #31572c;
+    }
+    .service-links li{
+      margin-right: 18px;
+    }
+    .service-links a{
+      display: block;        /* block element [2] */
+      color: white;
+      padding: 10px 12px;
+      text-decoration: none; /* remove underline [2] */
+    }
+
+    /* Q3(2): selectors examples (comment only) [2]
+       1) .book-card
+       2) section.shelf > article.book-card
+    */
+
+    .shelf{
+      margin-top: 12px;
+    }
+    .book-card{
+      background: white;
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin: 6px 0;
+      width: fit-content;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Set 3 (Odd Questions)</h1>
+
+  <!-- Q1 [2] -->
+  <h2>第1題：到訪提示</h2>
+  <button onclick="addArrivalNote()">加入到訪提示</button>
+  <ul id="arrivalNotes"></ul>
+
+  <hr>
+
+  <!-- Q3 [2] -->
+  <h2>社區閱讀角</h2>
+  <section class="shelf">
+    <article class="book-card">本月新書</article>
+    <article class="book-card">兒童讀物</article>
+    <article class="book-card">報章雜誌</article>
+  </section>
+
+  <hr>
+
+  <!-- Q5 [2] -->
+  <h2>第5題：活動室陣列（看 Console）</h2>
+  <script>
+    let activityRooms = ["棋藝室","舞蹈室","閱讀室","多用途室"];
+
+    // 1 [2]
+    console.log("Q5(1) activityRooms[1] =", activityRooms[1]);
+
+    // 2 [2]
+    activityRooms.push("電腦室");
+    console.log("Q5(2) after push =", activityRooms);
+
+    // 3 [2]
+    console.log("Q5(3) iterate:");
+    for (let i = 0; i < activityRooms.length; i++){
+      console.log(activityRooms[i]);
+    }
+  </script>
+
+  <hr>
+
+  <!-- Q7 [2] -->
+  <h2>第7題：標示時段</h2>
+  <p>今日開放時段 :</p>
+  <span>上午九時</span>
+  <span>上午十一時</span>
+  <span>下午二時</span>
+  <span>下午四時</span>
+  <br><br>
+  <button onclick="emphasizeTimes()">標示時段</button>
+
+  <hr>
+
+  <!-- Q11 [2] -->
+  <h2>第11題：確認預約狀態</h2>
+  <div id="bookingStatus" style="border: 2px solid #cccccc; background-color: #6c757d;">
+    預約尚未確認
+  </div>
+  <button onclick="confirmBooking()">確認預約</button>
+
+  <hr>
+
+  <!-- Q13 [2] -->
+  <h2>第13題：服務資訊連結</h2>
+  <nav class="service-links">
+    <ul>
+      <li><a href="#hours">開放時間</a></li>
+      <li><a href="#rooms">活動室</a></li>
+      <li><a href="#contact">聯絡方法</a></li>
+    </ul>
+  </nav>
+
+  <hr>
+
+  <!-- Q15 [2] -->
+  <h2>第15題：兩種編號次序（看 Console）</h2>
+  <p>
+    15A 在提供的內容中只顯示片段「6 10 14」，缺少完整序列，因此未能100%確定 for 迴圈要輸出哪些數值。[2]
+    <br>
+    15B 已在 Console 輸出 14、10、6、2。[2]
+  </p>
+
+  <script>
+    // Q1 [2]
+    function addArrivalNote(){
+      const li = document.createElement("li");
+      li.textContent = "請先到接待處領取號碼牌。";
+      document.getElementById("arrivalNotes").appendChild(li);
+    }
+
+    // Q7 [2]
+    function emphasizeTimes(){
+      const spans = document.getElementsByTagName("span");
+      for (let i = 0; i < spans.length; i++){
+        spans[i].style.fontWeight = "700";
+        spans[i].style.borderBottomStyle = "solid";
+      }
+    }
+
+    // Q11 [2]
+    function confirmBooking(){
+      const box = document.getElementById("bookingStatus");
+      box.textContent = "預約已經確認";
+      box.style.color = "#ffffff";
+      box.style.borderColor = "#15616d";
+      box.style.fontSize = "20px";
+    }
+
+    // Q15B [2]
+    let n = 14;
+    do{
+      console.log(n);
+      n -= 4;
+    }while(n >= 2);
+
+    // Q15A [2] - cannot finalize without full sequence.
+    // Please provide the full list/ending number for 15A.
+  </script>
+
+</body>
+</html>
